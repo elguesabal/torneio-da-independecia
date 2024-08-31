@@ -113,7 +113,7 @@ export default function Home() {
 	return (
 		<div id="home">
 			<Load />
-			<div class="d-flex flex-column align-items-stretch justify-content-center m-2 opacity-75">
+			<div className="d-flex flex-column align-items-stretch justify-content-center m-2 opacity-75">
 				<CardLinks info={tabelas} />
 				<CardLinks info={jogos} />
 			</div>
