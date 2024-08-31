@@ -1,50 +1,91 @@
+import { useEffect } from "react";
 import Load from "../componentes/load/load.jsx";
+import { linkApi } from "../linkApi.js";
+
+import { useState } from "react";
+import axios from "axios";
+
+
+// async function requisicao(link) {
+// 	try {
+// 		let res = await fetch(link);
+// 		res = await res.json();
+// 		return (res);
+// 	} catch (erro) {
+// 		console.log("erro na requisicao: ", erro);
+// 		return ("erro");
+// 	}
+// }
 
 function Posicoes({categoria, modalidade}) {
-	let posicoes = [];
 
-	fetch("https://api-7-circuito-badbons-open.onrender.com/tabela" + "?categoria=" + categoria + "&modalidade=" + modalidade)
-	.then(res => { return res.json(); })
-	.then(table => {
-		table.sort((a, b) => { return (b.v !== a.v) ? b.v - a.v : (b.pf - b.ps) - (a.pf - a.ps); });
-		// for(let i = 0; i < table.length; i++) {
-		// 	document.getElementById("table").innerHTML += `
-		// 		<tr>
-		// 			<th scope="row">${i + 1}°</th>
-		// 			<td>${table[i].nome}</td>
-		// 			<td>${table[i].tj}</td>
-		// 			<td>${table[i].v}</td>
-		// 			<td>${table[i].d}</td>
-		// 			<td>${table[i].vSet}</td>
-		// 			<td>${table[i].pf}</td>
-		// 			<td>${table[i].ps}</td>
-		// 			<td>${table[i].pf - table[i].ps}</td>
-		// 		</tr>
-		// 	`;
-		// }
-		// console.log(table)
+	// fetch("https://api-7-circuito-badbons-open.onrender.com/tabela" + "?categoria=" + categoria + "&modalidade=" + modalidade)
+	// .then(res => { return res.json(); })
+	// .then(table => {
+	// 	table.sort((a, b) => { return (b.v !== a.v) ? b.v - a.v : (b.pf - b.ps) - (a.pf - a.ps); });
 
-		posicoes = table.map((atleta, i) => { // NAO TA FUNFANDO AINDA
-			return (
-				<tr>
-					<th scope="row">{i + 1}°</th>
-					<td>{atleta.nome}</td>
-					<td>{atleta.tj}</td>
-					<td>{atleta.v}</td>
-					<td>{atleta.d}</td>
-					<td>{atleta.vSet}</td>
-					<td>{atleta.pf}</td>
-					<td>{atleta.ps}</td>
-					<td>{atleta.pf - table[i].ps}</td>
-				</tr>
-			);
-		})
-	})
-	.catch(error => console.log("Error na tabela", error))
-	console.log(posicoes)
-	return (
-		posicoes
-	);
+	// 	// table.map((atleta, i) => { // NAO TA FUNFANDO AINDA
+	// 	// 	return (
+	// 	// 		<tr>
+	// 	// 			<th scope="row">{i + 1}°</th>
+	// 	// 			<td>{atleta.nome}</td>
+	// 	// 			<td>{atleta.tj}</td>
+	// 	// 			<td>{atleta.v}</td>
+	// 	// 			<td>{atleta.d}</td>
+	// 	// 			<td>{atleta.vSet}</td>
+	// 	// 			<td>{atleta.pf}</td>
+	// 	// 			<td>{atleta.ps}</td>
+	// 	// 			<td>{atleta.pf - table[i].ps}</td>
+	// 	// 		</tr>
+	// 	// 	);
+	// 	// })
+
+
+
+	// useEffect(() => {
+	// 	const atualizarTabela = async () => { // TO PERDIDO KKKKKKKKK
+	// 		// try {
+	// 			setTabela(await requisicao(linkApi + "/tabela" + "?categoria=" + categoria + "&modalidade=" + modalidade));
+	// 			// await setTabela("teste")
+	// 		// } catch (erro) {
+	// 			// setTabela(null);
+	// 		// }
+	// 	}
+	// 	atualizarTabela();
+	// }, []);
+
+
+
+
+
+	const [tabela, setTabela] = useState("aaaaleleke");
+	const [carregando, setCarregando] = useState(true);
+	const [erro, setErro] = useState(null);
+
+	useEffect(() => {
+		const request = async () => {
+			try {
+				const res = await axios.get(linkApi);
+				setTabela(res.data);
+			} catch (erro) {
+				setErro(erro.message);
+			} finally {
+				setCarregando(false);
+			}
+		};
+
+		request();
+	}, []);
+
+	if (carregando) {
+		return (<tr><td>ta carregando</td></tr>);
+	}
+
+	if (erro) {
+		return (<tr><td>deu esse erro: {erro}</td></tr>);
+	}
+
+	return (<tr><td>nao esperou nada</td></tr>);
 }
 
 export default function Tabela() {
