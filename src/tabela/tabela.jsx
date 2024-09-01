@@ -13,22 +13,20 @@ function Posicoes({categoria, modalidade}) {
 
 			tabela.forEach((atleta, i) => {
 				document.getElementById("table").innerHTML +=
-				`<tr>
-					<th scope="row">${i + 1}°</th>
-					<td>${atleta.nome}</td>
-					<td>${atleta.tj}</td>
-					<td>${atleta.v}</td>
-					<td>${atleta.d}</td>
-					<td>${atleta.vSet}</td>
-					<td>${atleta.pf}</td>
-					<td>${atleta.ps}</td>
-					<td>${(atleta.pf - atleta.ps)}</td>
-				</tr>`;
+					`<tr>
+						<th scope="row">${i + 1}°</th>
+						<td>${atleta.nome}</td>
+						<td>${atleta.tj}</td>
+						<td>${atleta.v}</td>
+						<td>${atleta.d}</td>
+						<td>${atleta.vSet}</td>
+						<td>${atleta.pf}</td>
+						<td>${atleta.ps}</td>
+						<td>${(atleta.pf - atleta.ps)}</td>
+					</tr>`;
 			});
 		})
-		.catch((erro) => {
-			console.log("erro: ", erro);
-		});
+		.catch((erro) => console.log("erro: ", erro));
 	}, []);
 
 	return (

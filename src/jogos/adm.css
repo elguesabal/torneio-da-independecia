@@ -1,0 +1,34 @@
+#botaoAdm {
+	display: none;
+}
+
+#loadAdm {
+	display: none;
+}
+
+.enviando {
+	width: 10rem;
+	height: 10rem;
+	border-width: 0.7rem;
+}
+
+#spinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 5rem;
+	color: red;
+}
+
+#loadSenha {
+	background-color: white;
+	display: none;
+}
+
+.formSenha {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
