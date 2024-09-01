@@ -1,1 +1,0 @@
-export const linkApi = "https://api-7-circuito-badbons-open.onrender.com";
