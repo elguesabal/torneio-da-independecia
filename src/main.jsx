@@ -18,6 +18,7 @@ createRoot(document.getElementById('root')).render(
 			<Route path="/" element={<Home />} />
 			<Route path="/tabela" element={<Tabela />} />
 			<Route path="/jogo" element={<Jogos />} />
+			{/* <Route path="/" element={<Atletas />} /> */}
 		</Routes>
 	</BrowserRouter>
 );
