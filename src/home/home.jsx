@@ -2,10 +2,18 @@ import Load from "../componentes/load/load.jsx";
 import CardLinks from "../componentes/cards/card links.jsx";
 import Desenvolvedor from "../componentes/cards/desenvolvedor.jsx";
 
-const url = new URL(window.location.href);
-const adm = url.searchParams.get("adm");
+
+// let teste = "nao salvou";		// NAO SEI COMO VOU CONSULTAR O BACKEND PARA VER QUAIS CATEGORIAS E MODALIDADES EXIBIR
+// axios.get("http://192.168.0.110:3000/info/home?info=tabelas")
+// .then((res) => console.log(res.data))
+// .catch((erro) => console.log("deu erro"));
+// console.log(teste)
+
 
 export default function Home() {
+	const url = new URL(window.location.href);
+	const adm = url.searchParams.get("adm");
+
 	const tabelas = {
 		titulo: "BADBONS OPEN",
 		subTitulo: "Tabela de classificação",
@@ -110,9 +118,13 @@ export default function Home() {
 	}
 
 
+	// useEffect(() => {
+
+	// }, []);
+
 	return (
 		<div id="home">
-			<Load />
+			<Load close="yes" />
 			<div className="d-flex flex-column align-items-stretch justify-content-center m-2 opacity-75">
 				<CardLinks info={tabelas} />
 				<CardLinks info={jogos} />

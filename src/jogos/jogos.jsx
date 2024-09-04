@@ -13,7 +13,7 @@ export default function Jogos() {
 
 	return (
 		<>
-			<Load />
+			<Load close="yes" />
 		
 			<div id="loadAdm" className="load fixed-top">
 				<div id="spinner"><div className="spinner-border text-primary enviando" role="status"></div></div>

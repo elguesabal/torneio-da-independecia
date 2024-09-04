@@ -83,7 +83,7 @@ export default function Tabela() {
 
 	return (
 		<>
-			<Load />
+			<Load close="yes" />
 			<table className="table">
 				<thead className="table-dark">
 					<tr>
