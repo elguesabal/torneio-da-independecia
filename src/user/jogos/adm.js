@@ -1,5 +1,5 @@
 import axios from "axios";
-import { url } from "../url.js";
+import { url } from "../../url.js";
 
 function vitoria(sets, set1_1, set2_1, set3_1, set1_2, set2_2, set3_2) {
 	if (sets == 0) {

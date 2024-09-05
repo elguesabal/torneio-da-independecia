@@ -65,9 +65,11 @@ export default function Teste() {
 
 	useEffect(() => {
 		axios.get('https://jsonplaceholder.typicode.com/posts')
-		.then((resposta) => setDados(resposta.data), setCarregando(false))
-		.catch((erro) => setErro(erro.message), setCarregando(false));
+		.then((resposta) => setDados(resposta.data))
+		.catch((erro) => setErro(erro.message))
+		.finally(() => setCarregando(false));
 	}, []);
+	console.log("teste")
 
 	if (carregando) return <p>Carregando...</p>;
 	if (erro) return <p>Ocorreu um erro: {erro}</p>;

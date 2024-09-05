@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Load from "../componentes/load/load.jsx";
+import Load from "../../componentes/load/load.jsx";
 import user from "./user.js";
 import adm from "./adm.js";
 

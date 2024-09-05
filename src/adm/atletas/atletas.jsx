@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { url } from "../url.js";
-import Load from "../componentes/load/load.jsx";
+import { url } from "../../url.js";
+import Load from "../../componentes/load/load.jsx";
 
 export default function Atletas() {
 	const [atletas, setAtletas] = useState([]);

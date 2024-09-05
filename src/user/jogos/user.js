@@ -1,5 +1,5 @@
 import axios from "axios";
-import { url } from "../url.js";
+import { url } from "../../url.js";
 
 export default function user(categoria, modalidade) {
 	axios.get(url + "/jogos?categoria=" + categoria + "&modalidade=" + modalidade)

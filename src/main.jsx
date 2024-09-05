@@ -5,26 +5,25 @@ import "./main.css";
 import "./componentes/load/load.css";
 
 import "./componentes/cards/desenvolvedor.css";
-import "./jogos/jogos.css";
-import "./jogos/adm.css";
+import "./user/jogos/jogos.css";
+import "./user/jogos/adm.css";
 
-import Home from "./home/home.jsx";
-import Tabela from './tabela/tabela.jsx';
-import Jogos from './jogos/jogos.jsx';
-import Atletas from './atletas/Atletas.jsx';
+import Atletas from './adm/atletas/Atletas.jsx';
 
+import Home from "./user/home/home.jsx";
+import Tabela from './user/tabela/tabela.jsx';
+import Jogos from './user/jogos/jogos.jsx';
 
 import Teste from './teste.jsx';
-
 
 createRoot(document.getElementById('root')).render(
 	<BrowserRouter>
 		<Routes>
+			<Route path="/adm/atletas" element={<Atletas />} />
+
 			<Route path="/" element={<Home />} />
 			<Route path="/tabela" element={<Tabela />} />
-			<Route path="/jogo" element={<Jogos />} />
-			<Route path="/update/atletas" element={<Atletas />} />
-
+			<Route path="/jogos" element={<Jogos />} />
 
 			<Route path="/teste" element={<Teste />} />
 		</Routes>
