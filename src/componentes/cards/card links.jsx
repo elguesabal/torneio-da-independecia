@@ -13,7 +13,7 @@ function GerarBotoes({info}) {
 		<>
 			{info.map((html, i) => {
 				return (
-					<div key={i} className="btn-group">
+					<div key={i} className="btn-group m-1">
 						<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{info[i].nomeBotao}</button>
 						<ul id={info[i].idBotao} className="dropdown-menu dropdown-menu-dark dropdown-menu">
 							<GerarLink lista={info[i]} />
