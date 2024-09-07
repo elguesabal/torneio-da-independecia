@@ -35,9 +35,9 @@ export default function HomeAdm() {
 				<div className="btn-group m-3">
 			 		<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Editar categorias</button>
 			 		<ul className="dropdown-menu dropdown-menu-dark dropdown-menu">
-						<li><a className="dropdown-item text-center" href="./adm/categorias">Adicionar categoria</a></li> {/* CONTINUAR AKI ADICIONANDO E APAGANDO CATEGORIAS */}
+						<li><a className="dropdown-item text-center" href="./adm/novacategoria">Adicionar categoria</a></li> {/* CONTINUAR AKI ADICIONANDO E APAGANDO CATEGORIAS */}
 						{categorias.map((categoria, i) => (
-							<li key={i}><a className="dropdown-item text-center" href={`./adm/categorias/${categoria}`}>{categoria}</a></li>
+							<li key={i}><a className="dropdown-item text-center" href={`./adm/categorias?categoria=${categoria}`}>{categoria}</a></li>
 						))}
 			 		</ul>
 			 	</div>

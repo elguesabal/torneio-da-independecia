@@ -23,7 +23,6 @@ export function infoCategorias(info) {
 	let categorias = [];
 
 	info.forEach((categoria) => categorias.push(categoria.categoria));
-	// console.log(categorias)
 	return (categorias);
 }
 

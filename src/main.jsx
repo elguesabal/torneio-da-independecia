@@ -9,6 +9,7 @@ import "./user/jogos/jogos.css";
 import "./user/jogos/adm.css";
 
 import HomeAdm from "./adm/home/homeAdm.jsx";
+import NovaCategoria from './adm/categorias/novaCategoria.jsx';
 import Categorias from "./adm/categorias/categorias.jsx";
 import Atletas from "./adm/atletas/Atletas.jsx";
 import JogosAdm from "./adm/jogos/jogos.jsx";
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
 	<BrowserRouter>
 		<Routes>
 			<Route path="/adm" element={<HomeAdm />} />
+			<Route path="/adm/novacategoria" element={<NovaCategoria />} />
 			<Route path="/adm/categorias" element={<Categorias />} />
 			<Route path="/adm/atletas" element={<Atletas />} />
 			<Route path="/adm/tabela" element={<Tabela />} />
