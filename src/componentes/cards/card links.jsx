@@ -32,7 +32,9 @@ export default function CardLinks({info}) {
 			<div className="card-body">
 				<h5 className="card-title">{info.subTitulo}</h5>
 				<p className="card-text">{info.texto}</p>
-				<GerarBotoes info={info.listaBotoes} />
+				<div className="d-flex flex-column mx-4">
+					<GerarBotoes info={info.listaBotoes} />
+				</div>
 			</div>
 		</div>
 	);

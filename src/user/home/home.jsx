@@ -5,6 +5,7 @@ import { url } from "../../url.js";
 import Load from "../../componentes/load/load.jsx";
 import CardLinks from "../../componentes/cards/card links.jsx";
 import Desenvolvedor from "../../componentes/cards/desenvolvedor.jsx";
+import Feedback from "./feedback.jsx";
 
 export default function Home() {
 	const [tabelas, setTabelas] = useState({});
@@ -22,16 +23,17 @@ export default function Home() {
 		.finally(() => setCarregando(false));
 	}, []);
 
-	if (carregando) return (<p>Carregando...</p>);
-	if (erro) return (<p>Ocorreu um erro: {erro}</p>);
+	if (carregando) return (<Load />);
+	if (erro) return (<Load error="yes" />);
 
 	return (
-		<div id="home">
+		<div id="home" className="pb-5 pt-4">
 			<Load close="yes" />
-			<div className="d-flex flex-column align-items-stretch justify-content-center m-2 opacity-75">
+			<div className="d-flex flex-column align-items-stretch justify-content-center mx-2 opacity-75">
 				<CardLinks info={tabelas} />
 				<CardLinks info={jogos} />
 			</div>
+			<Feedback />
 			<Desenvolvedor />
 		</div>
 	);

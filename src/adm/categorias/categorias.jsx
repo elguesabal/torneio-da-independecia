@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { url } from "../../url.js";
 import Load from "../../componentes/load/load.jsx";
+import { inicioLoad, fimLoad, erroLoad } from "../../componentes/load/metodosLoad.js";
 
 export default function Categorias() {
 	const urlParams = new URL(window.location.href);
@@ -28,9 +29,10 @@ export default function Categorias() {
 	}
 
 	function deleteCategoria() {
+		inicioLoad();
 		axios.delete(`${url}/adm/categoria/${categoria}`)
-		.then((res) => console.log(res.data))
-		.catch((erro) => console.log(erro.message))
+		.then((res) => fimLoad())
+		.catch((erro) => erroLoad());
 	}
 	
 	function updateCategoria() {
@@ -41,13 +43,14 @@ export default function Categorias() {
 			const nome = document.getElementById("modalidade" + i).value;
 			if (nome) update.push(nome);
 		}
+		inicioLoad();
 		axios.put(`${url}/adm/categoria/${categoria}`, update)
-		.then((res) => console.log(res.data))
-		.catch((erro) => console.log("Erro: ", erro.message));
+		.then((res) => fimLoad())
+		.catch((erro) => erroLoad());
 	}
 
 	if (carregando) return (<Load />);
-	if (erro) return (<p>Ocorreu um erro: {erro}</p>);
+	if (erro) return (<Load error="yes" />);
 
 	return (
 		<>

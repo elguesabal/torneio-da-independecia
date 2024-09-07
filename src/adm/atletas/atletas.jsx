@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { url } from "../../url.js";
 import Load from "../../componentes/load/load.jsx";
+import { inicioLoad, fimLoad, erroLoad } from "../../componentes/load/metodosLoad.js";
 
 export default function Atletas() {
 	const [atletas, setAtletas] = useState([]);
@@ -13,8 +14,9 @@ export default function Atletas() {
 
 	useEffect(() => {
 		axios.get(`${url}/tabela?categoria=${categoria}&modalidade=${modalidade}`)
-		.then((res) => { setAtletas(res.data), setCarregando(false) })
-		.catch((erro) => { setErro(erro.message), setCarregando(false) });
+		.then((res) => setAtletas(res.data))
+		.catch((erro) => setErro(erro.message))
+		.finally(() => setCarregando(false));
 	}, []);
 
 	function adcicionarCampo() {
@@ -34,16 +36,18 @@ export default function Atletas() {
 			const nome = document.getElementById("atleta" + i).value;
 			if (nome) update.push({ nome: nome });
 		}
+		inicioLoad();
 		axios.put(`${url}/adm/atletas/${categoria}/${modalidade}`, update)
-		.then((res) => console.log(res.data))
-		.catch((erro) => console.log("Erro: ", erro.message));
+		.then((res) => fimLoad())
+		.catch((erro) => erroLoad());
 	}
 
 	if (carregando) return (<Load />);
-	if (erro) return (<>Erro ao carregar pagina: {erro}</>);
+	if (erro) return (<Load error="yes" />);
 
 	return (
 		<>
+			<Load close="yes" />
 			<div className="d-flex align-items-center justify-content-center mt-3">
 				<button className="btn btn-primary m-3" onClick={updateAtletas}>Atualizar atletas</button>
 				<button className="btn btn-outline-info m-3"><i className="bi bi-plus-circle-fill" onClick={adcicionarCampo}></i></button>

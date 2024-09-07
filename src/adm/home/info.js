@@ -1,7 +1,7 @@
 function creatLinks(categoria, modalidades, rota) {
 	let links = [];
 
-	modalidades.forEach((modalidade) => links.push(`./adm/${rota}?categoria=${categoria}&modalidade=${modalidade}&adm=true`));
+	modalidades.forEach((modalidade) => links.push(`./adm/${rota}?categoria=${categoria}&modalidade=${modalidade}`));
 	return (links);
 }
 
@@ -28,7 +28,7 @@ export function infoCategorias(info) {
 
 export function infoAtletas(info) {
 	return ({
-		titulo: "BADBONS OPEN",
+		titulo: "Torneio da independência - BADBONS",
 		subTitulo: "Lista de atletas",
 		texto: "Modifique a lista de atletas.",
 		listaBotoes: creatListaBotoes(info, "atletas")
@@ -37,7 +37,7 @@ export function infoAtletas(info) {
 
 export function infoTabelas(info) {
 	return ({
-		titulo: "BADBONS OPEN",
+		titulo: "Torneio da independência - BADBONS",
 		subTitulo: "Tabela de classificação",
 		texto: "Tenha acesso ao ranking de cada grupo.",
 		listaBotoes: creatListaBotoes(info, "tabela")
@@ -46,7 +46,7 @@ export function infoTabelas(info) {
 
 export function infoJogos(info) {
 	return ({
-		titulo: "BADBONS OPEN",
+		titulo: "Torneio da independência - BADBONS",
 		subTitulo: "Lista de jogos",
 		texto: "Tenha acesso ao resultado de cada jogo.",
 		listaBotoes: creatListaBotoes(info, "jogos")

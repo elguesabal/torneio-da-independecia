@@ -3,7 +3,6 @@ import axios from "axios";
 import Load from "../../componentes/load/load.jsx";
 import { url } from "../../url.js";
 
-
 function Posicoes({categoria, modalidade}) {
 	useEffect(() => {
 		axios.get(url + "/tabela?" + "categoria=" + categoria + "&modalidade=" + modalidade)

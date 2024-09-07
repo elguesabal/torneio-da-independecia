@@ -3,10 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./main.css";
 import "./componentes/load/load.css";
-
 import "./componentes/cards/desenvolvedor.css";
-import "./user/jogos/jogos.css";
-import "./user/jogos/adm.css";
+import "./componentes/jogos/jogos.css";
 
 import HomeAdm from "./adm/home/homeAdm.jsx";
 import NovaCategoria from './adm/categorias/novaCategoria.jsx';

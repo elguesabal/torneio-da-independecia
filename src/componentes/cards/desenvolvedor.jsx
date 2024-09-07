@@ -1,6 +1,6 @@
 export default function Desenvolvedor() {
 	return (
-		<div className="row g-0 bg-body-secondary m-4 mb-5 align-items-center bg-body-tertiary rounded">
+		<div className="row g-0 bg-body-secondary mx-4 mt-4 align-items-center bg-body-tertiary rounded">
 			<div className="col-md-6 mb-md-0 p-3">
 			<img src="/jose.jpg" className="w-100" alt="Foto do desenvolvedor deste site"/>
 			</div>

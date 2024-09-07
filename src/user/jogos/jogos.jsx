@@ -7,12 +7,11 @@ export default function Jogos() {
 	const [jogos, setJogos] = useState([]);
 	const [carregando, setCarregando] = useState(true);
 	const [erro, setErro] = useState(null);
+	const urlParams = new URL(window.location.href);
+	const categoria = urlParams.searchParams.get("categoria");
+	const modalidade = urlParams.searchParams.get("modalidade");
 
 	useEffect(() => {
-		const urlParams = new URL(window.location.href);
-		const categoria = urlParams.searchParams.get("categoria");
-		const modalidade = urlParams.searchParams.get("modalidade");
-
 		axios.get(url + "/jogos?categoria=" + categoria + "&modalidade=" + modalidade)
 		.then((res) => setJogos(res.data))
 		.catch((erro) => setErro(erro.message))
@@ -20,12 +19,11 @@ export default function Jogos() {
 	}, []);
 
 	if (carregando) return (<Load />);
-	if (erro) return (<p>Ocorreu um erro: {erro}</p>);
+	if (erro) return (<Load error="yes" />);
 
 	return (
 		<>
 			<Load close="yes" />
-			<button type="button" className="btn btn-primary" id="botaoAdm">Enviar alterações</button>
 			<div className="container mt-5">
 				<div id="jogos" className="table-responsive">
 					{jogos.map((jogo, i) => {
@@ -58,7 +56,7 @@ export default function Jogos() {
 									</tr>
 								</tbody>
 							</table>
-						)
+						);
 					})}
 				</div>
 			</div>

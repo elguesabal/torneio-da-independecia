@@ -26,16 +26,16 @@ export default function HomeAdm() {
 	}, []);
 
 	if (carregando) return (<Load />);
-	if (erro) return (<p>Ocorreu um erro: {erro}</p>);
+	if (erro) return (<Load error="yes" />);
 
 	return (
 		<div id="home">
 			<Load close="yes" />
-			<div className="d-flex flex-column align-items-stretch justify-content-center m-2 opacity-75">
+			<div className="d-flex flex-column align-items-stretch justify-content-center mx-2 opacity-75">
 				<div className="btn-group m-3">
 			 		<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Editar categorias</button>
 			 		<ul className="dropdown-menu dropdown-menu-dark dropdown-menu">
-						<li><a className="dropdown-item text-center" href="./adm/novacategoria">Adicionar categoria</a></li> {/* CONTINUAR AKI ADICIONANDO E APAGANDO CATEGORIAS */}
+						<li><a className="dropdown-item text-center" href="./adm/novacategoria">Adicionar categoria</a></li>
 						{categorias.map((categoria, i) => (
 							<li key={i}><a className="dropdown-item text-center" href={`./adm/categorias?categoria=${categoria}`}>{categoria}</a></li>
 						))}

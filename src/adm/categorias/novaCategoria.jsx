@@ -1,6 +1,7 @@
 import axios from "axios";
 import { url } from "../../url.js";
 import Load from "../../componentes/load/load.jsx";
+import { inicioLoad, fimLoad, erroLoad } from "../../componentes/load/metodosLoad.js";
 
 export default function NovaCategoria() {
 	function adcicionarCampo() {
@@ -20,9 +21,10 @@ export default function NovaCategoria() {
 			const categoria = document.getElementById("categoria" + i).value;
 			if (categoria) novasCategorias.push(categoria);
 		}
+		inicioLoad();
 		axios.post(`${url}/adm/categoria`, novasCategorias)
-		.then((res) => console.log(res.data))
-		.catch((erro) => console.log("Erro: ", erro.message));
+		.then((res) => fimLoad())
+		.catch((erro) => erroLoad());
 	}
 
 	return (
