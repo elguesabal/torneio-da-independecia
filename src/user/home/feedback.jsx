@@ -1,5 +1,6 @@
 import axios from "axios";
 import { url } from "../../url";
+import { inicioLoad, fimLoad } from "../../componentes/load/metodosLoad";
 
 export default function Feedback() {
 	function enviarFeedback() {
@@ -8,9 +9,11 @@ export default function Feedback() {
 			feedback: document.getElementById("feedback").value
 		}
 		if (!feedback.feedback) return (alert("Caixa de feedback vazia!"));
+		inicioLoad();
 		axios.post(`${url}/feedback`, feedback)
 		.then((res) => alert("Feedback enviado!"))
 		.catch((erro) => alert("Falha ao enviar feedback 😢"));
+		fimLoad();
 	}
 
 	return (
