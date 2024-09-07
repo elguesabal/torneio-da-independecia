@@ -11,7 +11,7 @@ import "./user/jogos/adm.css";
 import HomeAdm from "./adm/home/homeAdm.jsx";
 import NovaCategoria from './adm/categorias/novaCategoria.jsx';
 import Categorias from "./adm/categorias/categorias.jsx";
-import Atletas from "./adm/atletas/Atletas.jsx";
+import Atletas from "./adm/atletas/atletas.jsx";
 import JogosAdm from "./adm/jogos/jogos.jsx";
 
 import Home from "./user/home/home.jsx";
