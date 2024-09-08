@@ -12,7 +12,7 @@ export default function Feedback() {
 		inicioLoad();
 		axios.post(`${url}/feedback`, feedback)
 		.then((res) => alert("Feedback enviado!"))
-		.catch((erro) => { console.log(erro), alert("Falha ao enviar feedback 😢") });
+		.catch((erro) => alert("Falha ao enviar feedback 😢"));
 		fimLoad();
 	}
 
