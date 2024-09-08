@@ -17,9 +17,10 @@ export default function Feedback() {
 	}
 
 	return (
-		<div className="card text-center m-4">
-			<div className="card-header">Feedback</div>
-			<div className="card-body">
+		<div className="text-center m-4 row bg-body-tertiary rounded">
+			<div className="card-header m-2">Feedback</div>
+			<hr />
+			<div className="card-body mx-3">
 				<h5 className="card-title">Deixe seu feedback</h5>
 				<p className="card-text">Sua opnião é importante para que melhoremos nas próximos edições!</p>
 				<div className="mb-3">

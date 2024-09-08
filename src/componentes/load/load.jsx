@@ -7,7 +7,7 @@ export default function Load({ close, error }) {
 	}
 	return (
 		<div id="load" className="load fixed-top">
-			<img id="imgLoad" src="/public/iconeBadbons.png" alt="Icone da Badbons" />
+			<img id="imgLoad" src="/iconeBadbons.png" alt="Icone da Badbons" />
 			<p id="erroLoad">Erro</p>
 		</div>
 	);

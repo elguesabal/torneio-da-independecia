@@ -2,7 +2,7 @@ export default function Desenvolvedor() {
 	return (
 		<div className="row g-0 bg-body-secondary mx-4 mt-4 align-items-center bg-body-tertiary rounded">
 			<div className="col-md-6 mb-md-0 p-3">
-			<img src="/jose.jpg" className="w-100" alt="Foto do desenvolvedor deste site"/>
+				<img src="/jose.jpg" className="w-100" alt="Foto do desenvolvedor deste site"/>
 			</div>
 			<div className="col-md-6 p-4 ps-md-0">
 				<h5 className="mt-0">José Antonio, entusiasta de badminton, programador e desenvolvedor deste site.</h5>
